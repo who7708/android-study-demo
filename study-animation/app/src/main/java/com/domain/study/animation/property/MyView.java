@@ -12,11 +12,11 @@ import androidx.annotation.Nullable;
 
 public class MyView extends View {
 
-    private float RADIUS = 50f;
+    private final float RADIUS = 50f;
 
     private Point currentPoint;
 
-    private Paint mPaint;
+    private final Paint mPaint;
 
     public MyView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);

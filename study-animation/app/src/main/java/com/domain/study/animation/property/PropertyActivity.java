@@ -1,13 +1,10 @@
 package com.domain.study.animation.property;
 
-import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 
 import com.domain.study.animation.base.BaseBindingActivity;
 import com.domain.study.animation.databinding.ActivityPropertyBinding;
 
-import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 public class PropertyActivity extends BaseBindingActivity<ActivityPropertyBinding> {
@@ -16,10 +13,10 @@ public class PropertyActivity extends BaseBindingActivity<ActivityPropertyBindin
     // @BindView(R.id.btn_object_animator)
     // Button btnObjectAnimator;
 
-    public static void start(Context context) {
-        Intent starter = new Intent(context, PropertyActivity.class);
-        context.startActivity(starter);
-    }
+    // public static void start(Context context) {
+    //     Intent starter = new Intent(context, PropertyActivity.class);
+    //     context.startActivity(starter);
+    // }
 
     // @Override
     // protected int setLayoutId() {
@@ -29,8 +26,8 @@ public class PropertyActivity extends BaseBindingActivity<ActivityPropertyBindin
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getViewBinding().btnObjectAnimator.setOnClickListener(v -> ValueAnimatorActivity.start(PropertyActivity.this));
-        getViewBinding().btnValueAnimator.setOnClickListener(v -> ValueAnimatorActivity.start(PropertyActivity.this));
+        getViewBinding().btnObjectAnimator.setOnClickListener(v -> start(PropertyActivity.this, ObjectAnimatorActivity.class));
+        getViewBinding().btnValueAnimator.setOnClickListener(v -> start(PropertyActivity.this, ValueAnimatorActivity.class));
     }
 
     // @OnClick({R.id.btn_value_animator, R.id.btn_object_animator})
@@ -45,9 +42,9 @@ public class PropertyActivity extends BaseBindingActivity<ActivityPropertyBindin
     //     }
     // }
 
-    @NotNull
-    @Override
-    public ActivityPropertyBinding initViewBinding() {
-        return ActivityPropertyBinding.inflate(getLayoutInflater());
-    }
+    // @NotNull
+    // @Override
+    // public ActivityPropertyBinding initViewBinding() {
+    //     return ActivityPropertyBinding.inflate(getLayoutInflater());
+    // }
 }

@@ -12,11 +12,11 @@ import androidx.annotation.Nullable;
 
 public class ProgressView extends View {
 
-    private Paint mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
+    private final Paint mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
 
     private float progress = 0;
 
-    private float RADIUS = 80;
+    private final float RADIUS = 80;
 
     public ProgressView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);

@@ -8,7 +8,6 @@ import com.domain.study.animation.R;
 import com.domain.study.animation.base.BaseBindingActivity;
 import com.domain.study.animation.databinding.ActivityTweenTranslateBinding;
 
-import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 public class TweenScaleActivity extends BaseBindingActivity<ActivityTweenTranslateBinding> {
@@ -36,9 +35,9 @@ public class TweenScaleActivity extends BaseBindingActivity<ActivityTweenTransla
         });
     }
 
-    @NotNull
-    @Override
-    public ActivityTweenTranslateBinding initViewBinding() {
-        return ActivityTweenTranslateBinding.inflate(getLayoutInflater());
-    }
+    // @NotNull
+    // @Override
+    // public ActivityTweenTranslateBinding initViewBinding() {
+    //     return ActivityTweenTranslateBinding.inflate(getLayoutInflater());
+    // }
 }

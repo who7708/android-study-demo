@@ -7,8 +7,6 @@ import android.animation.AnimatorSet;
 import android.animation.Keyframe;
 import android.animation.ObjectAnimator;
 import android.animation.PropertyValuesHolder;
-import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.view.animation.LinearInterpolator;
@@ -19,7 +17,6 @@ import com.domain.study.animation.R;
 import com.domain.study.animation.base.BaseBindingActivity;
 import com.domain.study.animation.databinding.ActivityObjectAnimatorBinding;
 
-import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 public class ObjectAnimatorActivity extends BaseBindingActivity<ActivityObjectAnimatorBinding> {
@@ -43,10 +40,10 @@ public class ObjectAnimatorActivity extends BaseBindingActivity<ActivityObjectAn
     // @BindView(R.id.btn_xml)
     // Button btnXml;
 
-    public static void start(Context context) {
-        Intent starter = new Intent(context, ObjectAnimatorActivity.class);
-        context.startActivity(starter);
-    }
+    // public static void start(Context context) {
+    //     Intent starter = new Intent(context, ObjectAnimatorActivity.class);
+    //     context.startActivity(starter);
+    // }
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -223,9 +220,9 @@ public class ObjectAnimatorActivity extends BaseBindingActivity<ActivityObjectAn
 
     }
 
-    @NotNull
-    @Override
-    public ActivityObjectAnimatorBinding initViewBinding() {
-        return ActivityObjectAnimatorBinding.inflate(getLayoutInflater());
-    }
+    // @NotNull
+    // @Override
+    // public ActivityObjectAnimatorBinding initViewBinding() {
+    //     return ActivityObjectAnimatorBinding.inflate(getLayoutInflater());
+    // }
 }

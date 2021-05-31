@@ -6,22 +6,18 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationSet;
 import android.view.animation.RotateAnimation;
 import android.view.animation.TranslateAnimation;
-import android.widget.ImageView;
 
-import com.domain.study.animation.R;
-import com.domain.study.animation.base.BaseActivity;
+import com.domain.study.animation.base.BaseBindingActivity;
+import com.domain.study.animation.databinding.ActivityCombinationBinding;
 
-import butterknife.BindView;
-import butterknife.OnClick;
+public class TweenCombinationActivity extends BaseBindingActivity<ActivityCombinationBinding> {
 
-public class TweenCombinationActivity extends BaseActivity {
-
-    @BindView(R.id.iv_shumiao)
-    ImageView ivShumiao;
-    @BindView(R.id.iv_shuihu)
-    ImageView ivShuihu;
-    @BindView(R.id.iv_water)
-    ImageView ivWater;
+    // @BindView(R.id.iv_shumiao)
+    // ImageView ivShumiao;
+    // @BindView(R.id.iv_shuihu)
+    // ImageView ivShuihu;
+    // @BindView(R.id.iv_water)
+    // ImageView ivWater;
 
     int shuiHuX = 0;
     int shuiHuY = 0;
@@ -37,63 +33,63 @@ public class TweenCombinationActivity extends BaseActivity {
 
     int waterHeight = 0;
 
-    @Override
-    protected int setLayoutId() {
-        return R.layout.activity_combination;
-    }
+    // @Override
+    // protected int setLayoutId() {
+    //     return R.layout.activity_combination;
+    // }
 
     @Override
     protected void initView() {
-        ivShuihu.post(new Runnable() {
+        getViewBinding().ivShuihu.post(new Runnable() {
             @Override
             public void run() {
                 int[] location = new int[2];
-                ivShuihu.getLocationOnScreen(location);
+                getViewBinding().ivShuihu.getLocationOnScreen(location);
                 shuiHuX = location[0]; // view距离 屏幕左边的距离（即x轴方向）
                 shuiHuY = location[1]; // view距离 屏幕顶边的距离（即y轴方向）
-                shuiHuWidth = ivShuihu.getWidth();
-                shuiHuHeight = ivShuihu.getHeight();
+                shuiHuWidth = getViewBinding().ivShuihu.getWidth();
+                shuiHuHeight = getViewBinding().ivShuihu.getHeight();
             }
         });
-        ivShumiao.post(new Runnable() {
+        getViewBinding().ivShumiao.post(new Runnable() {
             @Override
             public void run() {
                 int[] location = new int[2];
-                ivShumiao.getLocationOnScreen(location);
+                getViewBinding().ivShumiao.getLocationOnScreen(location);
                 shuMiaoX = location[0]; // view距离 屏幕左边的距离（即x轴方向）
                 shuMiaoY = location[1]; // view距离 屏幕顶边的距离（即y轴方向）
 
-                shuMiaoWidth = ivShumiao.getWidth(); // 获取宽度
-                shuMiaoHeight = ivShumiao.getHeight(); // 获取高度
+                shuMiaoWidth = getViewBinding().ivShumiao.getWidth(); // 获取宽度
+                shuMiaoHeight = getViewBinding().ivShumiao.getHeight(); // 获取高度
             }
         });
 
-        ivWater.post(new Runnable() {
+        getViewBinding().ivWater.post(new Runnable() {
             @Override
             public void run() {
-                waterHeight = ivWater.getHeight();
+                waterHeight = getViewBinding().ivWater.getHeight();
             }
         });
-
+        getViewBinding().ivShuihu.setOnClickListener(view -> start());
     }
 
-    @OnClick(R.id.iv_shuihu)
-    public void onViewClicked() {
-        start();
-        //        startWaterAnimation();
-        //        new Handler().postDelayed(new Runnable(){
-        //            public void run(){
-        //                ivWater.setVisibility(View.VISIBLE);
-        //            }
-        //        },4000);
-
-        //   new Handler().postDelayed(new Runnable(){
-        //            public void run(){
-        //                ivWater.setVisibility(View.GONE);
-        //            }
-        //        },5000);
-
-    }
+    // @OnClick(R.id.iv_shuihu)
+    // public void onViewClicked() {
+    //     start();
+    //     //        startWaterAnimation();
+    //     //        new Handler().postDelayed(new Runnable(){
+    //     //            public void run(){
+    //     //                ivWater.setVisibility(View.VISIBLE);
+    //     //            }
+    //     //        },4000);
+    //
+    //     //   new Handler().postDelayed(new Runnable(){
+    //     //            public void run(){
+    //     //                ivWater.setVisibility(View.GONE);
+    //     //            }
+    //     //        },5000);
+    //
+    // }
 
     private void start() {
 
@@ -126,7 +122,7 @@ public class TweenCombinationActivity extends BaseActivity {
         setAnimation.addAnimation(rotate);
         setAnimation.addAnimation(wait);
 
-        ivShuihu.startAnimation(setAnimation);
+        getViewBinding().ivShuihu.startAnimation(setAnimation);
 
         rotate.setAnimationListener(new Animation.AnimationListener() {
             @Override
@@ -136,7 +132,7 @@ public class TweenCombinationActivity extends BaseActivity {
 
             @Override
             public void onAnimationEnd(Animation animation) {
-                ivWater.setVisibility(View.VISIBLE);
+                getViewBinding().ivWater.setVisibility(View.VISIBLE);
                 startWaterAnimation();
             }
 
@@ -160,7 +156,7 @@ public class TweenCombinationActivity extends BaseActivity {
 
         animationSet.addAnimation(translateAnimation);
         animationSet.addAnimation(alphaAnimation);
-        ivWater.startAnimation(animationSet);
+        getViewBinding().ivWater.startAnimation(animationSet);
 
         animationSet.setAnimationListener(new Animation.AnimationListener() {
             @Override
@@ -170,7 +166,7 @@ public class TweenCombinationActivity extends BaseActivity {
 
             @Override
             public void onAnimationEnd(Animation animation) {
-                ivWater.setVisibility(View.GONE);
+                getViewBinding().ivWater.setVisibility(View.GONE);
             }
 
             @Override

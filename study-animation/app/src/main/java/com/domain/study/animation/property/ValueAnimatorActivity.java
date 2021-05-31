@@ -2,8 +2,6 @@ package com.domain.study.animation.property;
 
 import android.animation.PropertyValuesHolder;
 import android.animation.ValueAnimator;
-import android.content.Context;
-import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
@@ -11,7 +9,6 @@ import android.util.DisplayMetrics;
 import com.domain.study.animation.base.BaseBindingActivity;
 import com.domain.study.animation.databinding.ActivityValueAnimatorBinding;
 
-import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 public class ValueAnimatorActivity extends BaseBindingActivity<ActivityValueAnimatorBinding> {
@@ -30,10 +27,10 @@ public class ValueAnimatorActivity extends BaseBindingActivity<ActivityValueAnim
     // @BindView(R.id.btn_of_values_property)
     // Button btnOfValuesProperty;
 
-    public static void start(Context context) {
-        Intent starter = new Intent(context, ValueAnimatorActivity.class);
-        context.startActivity(starter);
-    }
+    // public static void start(Context context) {
+    //     Intent starter = new Intent(context, ValueAnimatorActivity.class);
+    //     context.startActivity(starter);
+    // }
 
     // @Override
     // protected int setLayoutId() {
@@ -182,9 +179,9 @@ public class ValueAnimatorActivity extends BaseBindingActivity<ActivityValueAnim
         valueAnimator.start();
     }
 
-    @NotNull
-    @Override
-    public ActivityValueAnimatorBinding initViewBinding() {
-        return ActivityValueAnimatorBinding.inflate(getLayoutInflater());
-    }
+    // @NotNull
+    // @Override
+    // public ActivityValueAnimatorBinding initViewBinding() {
+    //     return ActivityValueAnimatorBinding.inflate(getLayoutInflater());
+    // }
 }

@@ -28,14 +28,14 @@ class MainActivity : BaseBindingActivity<ActivityMainBinding>() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        viewBinding.tvFrame.setOnClickListener { FrameActivity.start(this) }
-        viewBinding.tvTween.setOnClickListener { TweenActivity.start(this) }
-        viewBinding.tvProperty.setOnClickListener { PropertyActivity.start(this) }
+        viewBinding.tvFrame.setOnClickListener { start(this@MainActivity, FrameActivity::class.java) }
+        viewBinding.tvTween.setOnClickListener { start(this@MainActivity, TweenActivity::class.java) }
+        viewBinding.tvProperty.setOnClickListener { start(this@MainActivity, PropertyActivity::class.java) }
     }
 
-    override fun initViewBinding(): ActivityMainBinding {
-        return ActivityMainBinding.inflate(layoutInflater)
-    }
+    // override fun initViewBinding(): ActivityMainBinding {
+    //     return ActivityMainBinding.inflate(layoutInflater)
+    // }
 
     // @OnClick(R.id.tv_frame, R.id.tv_tween, R.id.tv_property)
     // fun onViewClicked(view: View) {
