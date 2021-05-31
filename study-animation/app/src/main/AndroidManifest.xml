@@ -17,17 +17,16 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".tween.TweenTanslateActivity"></activity>
-        <activity android:name=".tween.TweenScaleActivity"></activity>
-        <activity android:name=".tween.TweenRotateActivity"></activity>
-        <activity android:name=".tween.TweenAlphaActivity"></activity>
-        <activity android:name=".tween.TweenCombinationActivity"></activity>
-<!--        <activity android:name=".PropertyActivity" />-->
+        <activity android:name=".tween.TweenTanslateActivity" />
+        <activity android:name=".tween.TweenScaleActivity" />
+        <activity android:name=".tween.TweenRotateActivity" />
+        <activity android:name=".tween.TweenAlphaActivity" />
+        <activity android:name=".tween.TweenCombinationActivity" />
         <activity android:name=".property.ValueAnimatorActivity" />
         <activity android:name=".property.ObjectAnimatorActivity" />
-        <activity android:name=".property.PropertyActivity"></activity>
-        <activity android:name=".tween.TweenActivity"></activity>
-        <activity android:name=".FrameActivity"></activity>
+        <activity android:name=".property.PropertyActivity" />
+        <activity android:name=".tween.TweenActivity" />
+        <activity android:name=".FrameActivity" />
     </application>
 
 </manifest>
