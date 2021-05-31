@@ -6,6 +6,7 @@ import androidx.viewbinding.ViewBinding
 
 abstract class BaseBindingActivity<T : ViewBinding> : AppCompatActivity() {
 
+    // 初始化 viewBinding ，使用懒加载方式
     val viewBinding: T by lazy {
         initViewBinding()
     }
@@ -13,7 +14,10 @@ abstract class BaseBindingActivity<T : ViewBinding> : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(viewBinding.root)
+        initView()
     }
+
+    protected open fun initView() {}
 
     /**
      * 初始化 viewBinding

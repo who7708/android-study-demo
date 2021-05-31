@@ -5,68 +5,72 @@ import android.animation.ValueAnimator;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.os.Bundle;
 import android.util.DisplayMetrics;
-import android.view.View;
-import android.widget.Button;
 
-import com.domain.study.animation.R;
-import com.domain.study.animation.base.BaseActivity;
+import com.domain.study.animation.base.BaseBindingActivity;
+import com.domain.study.animation.databinding.ActivityValueAnimatorBinding;
 
-import butterknife.BindView;
-import butterknife.OnClick;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
-public class ValueAnimatorActivity extends BaseActivity {
+public class ValueAnimatorActivity extends BaseBindingActivity<ActivityValueAnimatorBinding> {
 
-    @BindView(R.id.btn_of_int)
-    Button btnOfInt;
-    @BindView(R.id.btn_of_float)
-    Button btnOfFloat;
-    @BindView(R.id.btn_of_object)
-    Button btnOfObject;
-    @BindView(R.id.btn_of_rgb)
-    Button btnOfRgb;
-    @BindView(R.id.myView)
-    MyView myView;
-
-    @BindView(R.id.btn_of_values_property)
-    Button btnOfValuesProperty;
+    // @BindView(R.id.btn_of_int)
+    // Button btnOfInt;
+    // @BindView(R.id.btn_of_float)
+    // Button btnOfFloat;
+    // @BindView(R.id.btn_of_object)
+    // Button btnOfObject;
+    // @BindView(R.id.btn_of_rgb)
+    // Button btnOfRgb;
+    // @BindView(R.id.myView)
+    // MyView myView;
+    //
+    // @BindView(R.id.btn_of_values_property)
+    // Button btnOfValuesProperty;
 
     public static void start(Context context) {
         Intent starter = new Intent(context, ValueAnimatorActivity.class);
         context.startActivity(starter);
     }
 
-    @Override
-    protected int setLayoutId() {
-        return R.layout.activity_value_animator;
-    }
+    // @Override
+    // protected int setLayoutId() {
+    //     return R.layout.activity_value_animator;
+    // }
+
+    // @OnClick({R.id.btn_of_int, R.id.btn_of_float, R.id.btn_of_object, R.id.btn_of_rgb, R.id.btn_of_values_property})
+    // public void onViewClicked(View view) {
+    //     switch (view.getId()) {
+    //         case R.id.btn_of_int:
+    //             valueAnimatorOfInt();
+    //             break;
+    //         case R.id.btn_of_float:
+    //             valueAnimatorOfFloat();
+    //             break;
+    //         case R.id.btn_of_object:
+    //             myView.startAnimation();
+    //             break;
+    //         case R.id.btn_of_rgb:
+    //             valueOfRGB();
+    //             break;
+    //
+    //         case R.id.btn_of_values_property:
+    //             valueOfPropertyValues();
+    //             break;
+    //
+    //     }
+    // }
 
     @Override
-    protected void initView() {
-
-    }
-
-    @OnClick({R.id.btn_of_int, R.id.btn_of_float, R.id.btn_of_object, R.id.btn_of_rgb, R.id.btn_of_values_property})
-    public void onViewClicked(View view) {
-        switch (view.getId()) {
-            case R.id.btn_of_int:
-                valueAnimatorOfInt();
-                break;
-            case R.id.btn_of_float:
-                valueAnimatorOfFloat();
-                break;
-            case R.id.btn_of_object:
-                myView.startAnimation();
-                break;
-            case R.id.btn_of_rgb:
-                valueOfRGB();
-                break;
-
-            case R.id.btn_of_values_property:
-                valueOfPropertyValues();
-                break;
-
-        }
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        getViewBinding().btnOfInt.setOnClickListener(view -> valueAnimatorOfInt());
+        getViewBinding().btnOfFloat.setOnClickListener(view -> valueAnimatorOfFloat());
+        getViewBinding().btnOfObject.setOnClickListener(view -> getViewBinding().myView.startAnimation());
+        getViewBinding().btnOfRgb.setOnClickListener(view -> valueOfRGB());
+        getViewBinding().btnOfValuesProperty.setOnClickListener(view -> valueOfPropertyValues());
     }
 
     int btnofFloatWidth = 0;
@@ -77,11 +81,11 @@ public class ValueAnimatorActivity extends BaseActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        btnOfFloat.post(() -> {
-            btnofFloatWidth = btnOfFloat.getMeasuredWidth();
+        getViewBinding().btnOfFloat.post(() -> {
+            btnofFloatWidth = getViewBinding().btnOfFloat.getMeasuredWidth();
 
-            btnWidth = btnOfValuesProperty.getMeasuredWidth();
-            btnHeight = btnOfValuesProperty.getMeasuredHeight();
+            btnWidth = getViewBinding().btnOfValuesProperty.getMeasuredWidth();
+            btnHeight = getViewBinding().btnOfValuesProperty.getMeasuredHeight();
         });
     }
 
@@ -90,7 +94,7 @@ public class ValueAnimatorActivity extends BaseActivity {
         DisplayMetrics displayMetrics = this.getResources().getDisplayMetrics();
         int widthPixels = displayMetrics.widthPixels;
         //起始值为btn最开始的坐标的x位置， 结束值为 屏幕的最右边，
-        ValueAnimator valueAnimator = ValueAnimator.ofInt((int) btnOfInt.getTranslationX(), widthPixels);
+        ValueAnimator valueAnimator = ValueAnimator.ofInt((int) getViewBinding().btnOfInt.getTranslationX(), widthPixels);
 
         valueAnimator.setDuration(2000);
         valueAnimator.setRepeatCount(2);
@@ -101,7 +105,7 @@ public class ValueAnimatorActivity extends BaseActivity {
             @Override
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
                 int currentValue = (int) valueAnimator.getAnimatedValue();
-                btnOfInt.setTranslationX(currentValue);
+                getViewBinding().btnOfInt.setTranslationX(currentValue);
                 System.out.println("current value:" + currentValue);
 
             }
@@ -126,9 +130,9 @@ public class ValueAnimatorActivity extends BaseActivity {
             @Override
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
                 float currentValue = (float) valueAnimator.getAnimatedValue();
-                btnOfFloat.getLayoutParams().width = (int) currentValue;
+                getViewBinding().btnOfFloat.getLayoutParams().width = (int) currentValue;
                 //重新绘制
-                btnOfFloat.requestLayout();
+                getViewBinding().btnOfFloat.requestLayout();
                 System.out.println("current value:" + currentValue);
             }
         });
@@ -142,7 +146,7 @@ public class ValueAnimatorActivity extends BaseActivity {
             @Override
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
                 int currentValue = (int) valueAnimator.getAnimatedValue();
-                btnOfRgb.setBackgroundColor(currentValue);
+                getViewBinding().btnOfRgb.setBackgroundColor(currentValue);
                 System.out.println("current value:" + currentValue);
             }
         });
@@ -156,7 +160,7 @@ public class ValueAnimatorActivity extends BaseActivity {
         int heightPixels = displayMetrics.heightPixels;
 
         PropertyValuesHolder holder1 = PropertyValuesHolder.ofInt("width", btnWidth, widthPixels);
-        PropertyValuesHolder holder2 = PropertyValuesHolder.ofInt("height", btnHeight, heightPixels - btnOfValuesProperty.getTop());
+        PropertyValuesHolder holder2 = PropertyValuesHolder.ofInt("height", btnHeight, heightPixels - getViewBinding().btnOfValuesProperty.getTop());
 
         ValueAnimator valueAnimator = ValueAnimator.ofPropertyValuesHolder(holder1, holder2);
         valueAnimator.setDuration(5000);
@@ -167,9 +171,9 @@ public class ValueAnimatorActivity extends BaseActivity {
                 int width = (int) valueAnimator.getAnimatedValue("width");
                 int height = (int) valueAnimator.getAnimatedValue("height");
 
-                btnOfValuesProperty.getLayoutParams().width = width;
-                btnOfValuesProperty.getLayoutParams().height = height;
-                btnOfValuesProperty.requestLayout();
+                getViewBinding().btnOfValuesProperty.getLayoutParams().width = width;
+                getViewBinding().btnOfValuesProperty.getLayoutParams().height = height;
+                getViewBinding().btnOfValuesProperty.requestLayout();
 
                 System.out.println("width:" + width + "height:" + height);
             }
@@ -178,4 +182,9 @@ public class ValueAnimatorActivity extends BaseActivity {
         valueAnimator.start();
     }
 
+    @NotNull
+    @Override
+    public ActivityValueAnimatorBinding initViewBinding() {
+        return ActivityValueAnimatorBinding.inflate(getLayoutInflater());
+    }
 }
