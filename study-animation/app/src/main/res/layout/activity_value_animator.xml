@@ -4,8 +4,6 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-
-
     <Button
         android:id="@+id/btn_of_int"
         android:layout_width="wrap_content"
@@ -20,13 +18,12 @@
         android:text="ofFloat"
         android:textAllCaps="false"></Button>
 
-<Button
+    <Button
         android:id="@+id/btn_of_rgb"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
         android:text="ofRGB"
-    android:textAllCaps="false"></Button>
-
+        android:textAllCaps="false"></Button>
 
     <Button
         android:id="@+id/btn_of_object"
@@ -35,20 +32,17 @@
         android:text="ofObject"
         android:textAllCaps="false"></Button>
 
-       <Button
+    <Button
         android:id="@+id/btn_of_values_property"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
         android:text="ofValuesProperty"
         android:textAllCaps="false"></Button>
 
-
-
     <com.domain.study.animation.property.MyView
         android:id="@+id/myView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-       >
+        android:layout_height="match_parent">
 
     </com.domain.study.animation.property.MyView>
 </LinearLayout>

@@ -4,56 +4,54 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-
     <Button
         android:id="@+id/btn_translate"
         android:layout_width="wrap_content"
         android:layout_height="48dp"
         android:gravity="center"
-        android:text="平移"></Button>
+        android:text="平移" />
 
     <Button
         android:id="@+id/btn_rotate"
         android:layout_width="wrap_content"
         android:layout_height="48dp"
         android:gravity="center"
-        android:text="旋转"></Button>
+        android:text="旋转" />
 
     <Button
         android:id="@+id/btn_scale"
         android:layout_width="wrap_content"
         android:layout_height="48dp"
         android:gravity="center"
-        android:text="缩放"></Button>
+        android:text="缩放" />
 
     <Button
         android:id="@+id/btn_alpha"
         android:layout_width="wrap_content"
         android:layout_height="48dp"
         android:gravity="center"
-        android:text="透明度"></Button>
+        android:text="透明度" />
 
     <Button
         android:id="@+id/btn_custom"
         android:layout_width="wrap_content"
         android:layout_height="48dp"
         android:gravity="center"
-        android:text="自定义属性"></Button>
-
+        android:text="自定义属性" />
 
     <Button
         android:id="@+id/btn_set"
         android:layout_width="wrap_content"
         android:layout_height="48dp"
         android:gravity="center"
-        android:text="组合动画"></Button>
+        android:text="组合动画" />
 
     <Button
         android:id="@+id/btn_key_frame"
         android:layout_width="wrap_content"
         android:layout_height="48dp"
         android:gravity="center"
-        android:text="关键帧"></Button>
+        android:text="关键帧" />
 
     <Button
         android:id="@+id/btn_view_property"
@@ -61,19 +59,19 @@
         android:layout_height="48dp"
         android:gravity="center"
         android:text="viewPropertyAnimator"
-        android:textAllCaps="false"></Button>
+        android:textAllCaps="false" />
+
     <Button
         android:id="@+id/btn_xml"
         android:layout_width="wrap_content"
         android:layout_height="50dp"
         android:text="xml"
-        android:textAllCaps="false"></Button>
+        android:textAllCaps="false" />
 
     <com.domain.study.animation.property.ProgressView
         android:id="@+id/progress_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
 
     </com.domain.study.animation.property.ProgressView>
 
