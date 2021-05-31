@@ -9,20 +9,17 @@ import android.animation.ObjectAnimator;
 import android.animation.PropertyValuesHolder;
 import android.content.Context;
 import android.content.Intent;
-import android.os.Bundle;
-import android.support.v4.view.animation.FastOutLinearInInterpolator;
-import android.support.v4.view.animation.FastOutSlowInInterpolator;
 import android.util.DisplayMetrics;
 import android.view.View;
-import android.view.ViewPropertyAnimator;
 import android.view.animation.LinearInterpolator;
 import android.widget.Button;
+
+import androidx.interpolator.view.animation.FastOutSlowInInterpolator;
 
 import com.domain.study.animation.R;
 import com.domain.study.animation.base.BaseActivity;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class ObjectAnimatorActivity extends BaseActivity {
@@ -41,11 +38,10 @@ public class ObjectAnimatorActivity extends BaseActivity {
     ProgressView progressView;
     @BindView(R.id.btn_set)
     Button btnSet;
-  @BindView(R.id.btn_view_property)
+    @BindView(R.id.btn_view_property)
     Button btnViewProperty;
- @BindView(R.id.btn_xml)
+    @BindView(R.id.btn_xml)
     Button btnXml;
-
 
     public static void start(Context context) {
         Intent starter = new Intent(context, ObjectAnimatorActivity.class);
@@ -62,7 +58,7 @@ public class ObjectAnimatorActivity extends BaseActivity {
 
     }
 
-    @OnClick({R.id.btn_translate, R.id.btn_rotate, R.id.btn_scale, R.id.btn_alpha, R.id.btn_custom, R.id.btn_set, R.id.btn_key_frame,R.id.btn_view_property,R.id.btn_xml})
+    @OnClick({R.id.btn_translate, R.id.btn_rotate, R.id.btn_scale, R.id.btn_alpha, R.id.btn_custom, R.id.btn_set, R.id.btn_key_frame, R.id.btn_view_property, R.id.btn_xml})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.btn_translate:
@@ -92,7 +88,6 @@ public class ObjectAnimatorActivity extends BaseActivity {
             case R.id.btn_view_property:
                 viewProperty();
                 break;
-
 
             case R.id.btn_xml:
                 xmlAnimator();
@@ -133,7 +128,6 @@ public class ObjectAnimatorActivity extends BaseActivity {
         objectAnimator.setInterpolator(new FastOutSlowInInterpolator());
         objectAnimator.start();
 
-
         objectAnimator.addListener(new Animator.AnimatorListener() {
             @Override
             public void onAnimationStart(Animator animator) {
@@ -157,25 +151,23 @@ public class ObjectAnimatorActivity extends BaseActivity {
         });
 
         objectAnimator.addListener(new AnimatorListenerAdapter() {
-//            @Override
-//            public void onAnimationStart(Animator animation) {
-//                super.onAnimationStart(animation);
-//            }
+            //            @Override
+            //            public void onAnimationStart(Animator animation) {
+            //                super.onAnimationStart(animation);
+            //            }
         });
     }
 
     private void animatorSet() {
 
-//        AnimatorSet.playTogether(Animator... anim) ：  将动画组合一起执行
-//        AnimatorSet.playSequentially(Animator... anim) ：  将动画组合有序执行
+        //        AnimatorSet.playTogether(Animator... anim) ：  将动画组合一起执行
+        //        AnimatorSet.playSequentially(Animator... anim) ：  将动画组合有序执行
 
-
-//        AnimatorSet.play(Animator anim)   ：播放当前动画
-//        AnimatorSet.after(long delay)   ：将现有动画延迟x毫秒后执行
-//        AnimatorSet.with(Animator anim)   ：将现有动画和传入的动画同时执行
-//        AnimatorSet.after(Animator anim)   ：将现有动画插入到传入的动画之后执行
-//        AnimatorSet.before(Animator anim) ：  将现有动画插入到传入的动画之前执行
-
+        //        AnimatorSet.play(Animator anim)   ：播放当前动画
+        //        AnimatorSet.after(long delay)   ：将现有动画延迟x毫秒后执行
+        //        AnimatorSet.with(Animator anim)   ：将现有动画和传入的动画同时执行
+        //        AnimatorSet.after(Animator anim)   ：将现有动画插入到传入的动画之后执行
+        //        AnimatorSet.before(Animator anim) ：  将现有动画插入到传入的动画之前执行
 
         DisplayMetrics displayMetrics = getResources().getDisplayMetrics();
         int widthPixels = displayMetrics.widthPixels;
@@ -186,8 +178,8 @@ public class ObjectAnimatorActivity extends BaseActivity {
 
         AnimatorSet animatorSet = new AnimatorSet();
 
-//        animatorSet.playTogether(translationX,rotation,alpha);
-//        animatorSet.playSequentially();
+        //        animatorSet.playTogether(translationX,rotation,alpha);
+        //        animatorSet.playSequentially();
 
         animatorSet.play(rotation).with(alpha).before(translationX);
 
@@ -209,12 +201,11 @@ public class ObjectAnimatorActivity extends BaseActivity {
         objectAnimator.start();
     }
 
-    private void viewProperty(){
-       btnViewProperty.animate().alpha(0).setDuration(2000).rotation(360).translationX(300);
+    private void viewProperty() {
+        btnViewProperty.animate().alpha(0).setDuration(2000).rotation(360).translationX(300);
     }
 
-
-    private void xmlAnimator(){
+    private void xmlAnimator() {
 
         Animator animator = AnimatorInflater.loadAnimator(this, R.animator.set_animator);
         animator.setDuration(5000);
@@ -222,6 +213,5 @@ public class ObjectAnimatorActivity extends BaseActivity {
         animator.start();
 
     }
-
 
 }

@@ -1,15 +1,14 @@
 package com.domain.study.animation.base;
 
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.view.Window;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
-
 
 public abstract class BaseActivity extends AppCompatActivity {
 
@@ -35,9 +34,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         ActivityManager.getInstance().finishActivity(this);
         unbinder.unbind();
     }
-    
-    
-    
+
     public void start(Class<?> cls) {
         Intent starter = new Intent(this, cls);
         startActivity(starter);

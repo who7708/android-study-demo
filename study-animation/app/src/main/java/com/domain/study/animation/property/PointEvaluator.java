@@ -2,7 +2,6 @@ package com.domain.study.animation.property;
 
 import android.animation.TypeEvaluator;
 
-
 /**
  * point 估值器
  */

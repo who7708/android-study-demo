@@ -24,8 +24,6 @@ public class TweenScaleActivity extends BaseActivity {
 
     }
 
-
-
     @OnClick(R.id.iv)
     public void onViewClicked() {
         Animation animation = AnimationUtils.loadAnimation(this, R.anim.scale);

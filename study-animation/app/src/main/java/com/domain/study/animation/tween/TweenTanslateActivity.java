@@ -1,6 +1,5 @@
 package com.domain.study.animation.tween;
 
-import android.os.Bundle;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
@@ -9,7 +8,6 @@ import com.domain.study.animation.R;
 import com.domain.study.animation.base.BaseActivity;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 public class TweenTanslateActivity extends BaseActivity {
@@ -25,8 +23,6 @@ public class TweenTanslateActivity extends BaseActivity {
     protected void initView() {
 
     }
-
-
 
     @OnClick(R.id.iv)
     public void onViewClicked() {

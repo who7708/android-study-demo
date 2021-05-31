@@ -1,16 +1,16 @@
 package com.domain.study.animation.base;
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
-
 
 /**
  * 实现懒加载的baseFragment，通过重写lazyLoad方法来加载数据
@@ -22,7 +22,6 @@ public abstract class BaseFragment extends Fragment {
     private boolean isViewCreated;//视图是否已经创建
     private boolean isUiVisible;//该fragment是否对用户可见
 
-
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -33,7 +32,6 @@ public abstract class BaseFragment extends Fragment {
         initView();
         return rootView;
     }
-
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
@@ -64,7 +62,6 @@ public abstract class BaseFragment extends Fragment {
 
         }
     }
-
 
     //获取布局文件
     protected abstract int setLayoutId();

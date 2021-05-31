@@ -37,15 +37,15 @@ public class ActivityManager {
         }
     }
 
-//    /**
-//     * 获取堆栈中倒数第二个个压入的Activity
-//     */
-//    public Activity lastButOneActivity() {
-//        if (activityStack != null && activityStack.size() > 1) {
-//            return activityStack.get(activityStack.size() - 2);
-//        }
-//        return null;
-//    }
+    //    /**
+    //     * 获取堆栈中倒数第二个个压入的Activity
+    //     */
+    //    public Activity lastButOneActivity() {
+    //        if (activityStack != null && activityStack.size() > 1) {
+    //            return activityStack.get(activityStack.size() - 2);
+    //        }
+    //        return null;
+    //    }
 
     /**
      * 获取堆栈中最后一个压入的Activity
@@ -67,8 +67,6 @@ public class ActivityManager {
         return null;
     }
 
-
-
     /**
      * 移除指定的Activity
      */
@@ -83,36 +81,36 @@ public class ActivityManager {
     /**
      * 结束指定类名的Activity
      */
-//    public void finishActivity(Class<?>... cls) {
-////        for (Class c : cls) {
-////            Iterator<Activity> iterator = activityStack.iterator();
-////            while (iterator.hasNext()) {
-////                Activity activity = iterator.next();
-////                if (activity.getClass().equals(c)) {
-////                    //防止ConcurrentModificationException
-////                    iterator.remove();
-////                    if (!activity.isFinishing()) {
-////                        activity.finish();
-////                    }
-////                }
-////            }
-////        }
-//
-//        List<Activity> finishList = new ArrayList<>();
-//        for (Class c : cls) {
-//            for (Activity activity : activityStack) {
-//                if (activity.getClass().equals(c)) {
-//                    finishList.add(activity);
-//                    break;
-//                }
-//            }
-//        }
-//
-//        for (int i = 0; i < finishList.size(); i++) {
-//            finishActivity(finishList.get(i));
-//            finishList.set(i, null);
-//        }
-//    }
+    //    public void finishActivity(Class<?>... cls) {
+    ////        for (Class c : cls) {
+    ////            Iterator<Activity> iterator = activityStack.iterator();
+    ////            while (iterator.hasNext()) {
+    ////                Activity activity = iterator.next();
+    ////                if (activity.getClass().equals(c)) {
+    ////                    //防止ConcurrentModificationException
+    ////                    iterator.remove();
+    ////                    if (!activity.isFinishing()) {
+    ////                        activity.finish();
+    ////                    }
+    ////                }
+    ////            }
+    ////        }
+    //
+    //        List<Activity> finishList = new ArrayList<>();
+    //        for (Class c : cls) {
+    //            for (Activity activity : activityStack) {
+    //                if (activity.getClass().equals(c)) {
+    //                    finishList.add(activity);
+    //                    break;
+    //                }
+    //            }
+    //        }
+    //
+    //        for (int i = 0; i < finishList.size(); i++) {
+    //            finishActivity(finishList.get(i));
+    //            finishList.set(i, null);
+    //        }
+    //    }
 
     /**
      * 结束指定的Activity
@@ -123,32 +121,32 @@ public class ActivityManager {
                 activityStack.remove(activity);
                 if (!activity.isFinishing()) {
                     activity.finish();
-                    activity=null;
+                    activity = null;
                 }
             }
         }
     }
+
     /**
      * 结束指定类名的activity
      */
 
     public void finishActivity(Class<?> cls) {
 
-//        for (Activity activity : activityStack) {
-//            if (activity.getClass().equals(cls)) {
-//                finishActivity(activity);
-//            }
-//        }
+        //        for (Activity activity : activityStack) {
+        //            if (activity.getClass().equals(cls)) {
+        //                finishActivity(activity);
+        //            }
+        //        }
         //改为下面写法，解决java.util.ConcurrentModificationException异常
         Iterator<Activity> iterator = activityStack.iterator();
-        while(iterator.hasNext()){
+        while (iterator.hasNext()) {
             Activity activity = iterator.next();
             if (activity.getClass().equals(cls)) {
                 finishActivity(activity);
             }
         }
     }
-
 
     /**
      * 关闭其他Activity
@@ -180,8 +178,8 @@ public class ActivityManager {
         return map;
     }
 
-
     //region 这里处理 关闭多个activity
+
     /**
      * 添加Activity到需要一次性关闭的堆栈
      */
@@ -209,8 +207,6 @@ public class ActivityManager {
     }
 
     //endregion
-
-
 
     /**
      * 结束所有Activity
@@ -240,8 +236,6 @@ public class ActivityManager {
             e.printStackTrace();
         }
     }
-
-
 
     /**
      * 获取未停止的Activity的HashCode
